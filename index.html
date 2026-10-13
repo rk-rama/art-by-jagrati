@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Art by Jagrati | Custom Paintings, Portraits & Sketches</title>
+<meta name="description" content="Art by Jagrati creates handcrafted custom portraits, oil paintings, charcoal sketches, acrylic canvases and watercolors. Commission your own piece today.">
+<meta name="keywords" content="custom portrait, commission art, oil painting, charcoal sketch, canvas art, Jagrati, handmade art India">
+<meta property="og:title" content="Art by Jagrati">
+<meta property="og:description" content="Handcrafted custom paintings and portraits, made to order.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#f3ece0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --linen:#f3ece0; --paper:#faf6ee; --sand:#e6dac6; --charcoal:#2b2a28; --ash:#6b665e;
+  --gold:#b98f45; --rose:#e8cfc4; --err:#a8402f;
+  --serif:'Cormorant Garamond',Georgia,serif; --sans:'Jost',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font-family:var(--sans);font-weight:300;background:var(--linen);color:var(--charcoal);line-height:1.7;font-size:17px;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+h1,h2,h3,.brand{font-family:var(--serif);font-weight:400;line-height:1.1}
+h2{font-size:clamp(2.2rem,5vw,3.2rem);margin-bottom:.5rem}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.narrow{max-width:720px}
+.section{padding:96px 0}
+.alt{background:var(--paper)}
+.lead{color:var(--ash);max-width:56ch;margin-bottom:2.2rem}
+
+/* Buttons */
+.btn{display:inline-block;font:400 .95rem var(--sans);padding:.8rem 1.6rem;border-radius:2px;border:1px solid transparent;cursor:pointer;text-decoration:none;transition:background .25s,color .25s,border-color .25s}
+.btn-dark{background:var(--charcoal);color:var(--paper)}
+.btn-dark:hover{background:#44413d}
+.btn-gold{background:var(--gold);color:#fff}
+.btn-gold:hover{background:#9f7a38}
+.btn-line{border-color:var(--charcoal)}
+.btn-line:hover{background:var(--charcoal);color:var(--paper)}
+.btn-wa{background:#1f7a4d;color:#fff}
+.btn-wa:hover{background:#17623d}
+.btn:disabled{opacity:.6;cursor:wait}
+
+/* Nav */
+.nav{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:14px 28px;background:rgba(243,236,224,.92);backdrop-filter:blur(8px);border-bottom:1px solid transparent;transition:border-color .3s,box-shadow .3s}
+.nav.scrolled{border-color:var(--sand)}
+.brand{font-size:1.7rem;text-decoration:none;font-style:italic}
+.links{display:flex;align-items:center;gap:26px}
+.links a:not(.btn){text-decoration:none;font-size:.95rem;position:relative}
+.links a:not(.btn)::after{content:"";position:absolute;left:0;bottom:-3px;height:1px;width:0;background:var(--gold);transition:width .25s}
+.links a:not(.btn):hover::after{width:100%}
+.burger{display:none;background:none;border:0;width:36px;height:36px;cursor:pointer;position:relative}
+.burger span{position:absolute;left:6px;right:6px;height:1.5px;background:var(--charcoal);transition:transform .25s}
+.burger span:first-child{top:13px}.burger span:last-child{top:21px}
+.burger[aria-expanded=true] span:first-child{transform:translateY(4px) rotate(45deg)}
+.burger[aria-expanded=true] span:last-child{transform:translateY(-4px) rotate(-45deg)}
+
+/* Hero */
+.hero{min-height:100vh;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:56px;max-width:1200px;margin:0 auto;padding:120px 28px 72px}
+.hero h1{font-size:clamp(3rem,7.4vw,5.8rem);letter-spacing:-.01em;margin-bottom:1.4rem}
+.hero-sub{max-width:46ch;color:var(--ash);font-size:1.1rem;margin-bottom:2rem}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.hero-art{position:relative}
+.frame{padding:14px;background:var(--paper);border:1px solid var(--sand);box-shadow:0 30px 60px -30px rgba(43,42,40,.35);transform:rotate(1.8deg);animation:settle 1.1s .1s cubic-bezier(.2,.7,.2,1) both}
+.frame img{aspect-ratio:4/5;width:100%;object-fit:cover;background:var(--rose)}
+.stroke{position:absolute;left:-6%;bottom:-26px;width:80%;height:46px;overflow:visible}
+.stroke path{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.4s .9s ease forwards}
+@keyframes settle{from{opacity:0;transform:rotate(-3deg) translateY(30px)}to{opacity:1;transform:rotate(1.8deg)}}
+@keyframes draw{to{stroke-dashoffset:0}}
+
+/* Gallery */
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:2rem}
+.tab{font:400 .9rem var(--sans);padding:.5rem 1.1rem;border:1px solid var(--sand);background:transparent;border-radius:999px;cursor:pointer;transition:all .2s}
+.tab:hover{border-color:var(--gold)}
+.tab.active{background:var(--charcoal);color:var(--paper);border-color:var(--charcoal)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:28px}
+.card{background:var(--paper);border:1px solid var(--sand);display:flex;flex-direction:column;animation:fadein .4s both}
+.card button.thumb{border:0;padding:0;background:var(--rose);cursor:zoom-in;overflow:hidden}
+.card img{width:100%;aspect-ratio:4/5;object-fit:cover;transition:transform .5s}
+.card .thumb:hover img{transform:scale(1.04)}
+.card-body{padding:16px 18px 20px;display:flex;flex-direction:column;gap:2px;flex:1}
+.card h3{font-size:1.5rem}
+.meta{color:var(--ash);font-size:.88rem}
+.card-foot{margin-top:auto;padding-top:14px;display:flex;justify-content:space-between;align-items:center}
+.price{font-family:var(--serif);font-size:1.4rem;color:var(--gold)}
+.enq{font:400 .9rem var(--sans);background:none;border:0;border-bottom:1px solid var(--charcoal);cursor:pointer;padding:0 0 1px;color:inherit;text-decoration:none}
+.enq:hover{color:var(--gold);border-color:var(--gold)}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+
+/* About */
+.about{display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:center}
+.about-img img{aspect-ratio:4/5;object-fit:cover;width:100%;background:var(--rose)}
+.about p{margin-top:1.1rem;max-width:58ch}
+
+/* Form */
+form{display:grid;gap:18px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+label{display:grid;gap:6px;font-size:.92rem;font-weight:400}
+input,select,textarea{font:300 1rem var(--sans);padding:.8rem .9rem;background:var(--paper);border:1px solid var(--sand);border-radius:2px;color:var(--charcoal);width:100%;transition:border-color .2s}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--gold)}
+.invalid input,.invalid select,.invalid textarea{border-color:var(--err)}
+.err{color:var(--err);font-size:.82rem;min-height:0;font-weight:300}
+.hp{position:absolute;left:-9999px;opacity:0}
+.form-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:6px}
+.form-note{font-size:.92rem;color:var(--err);min-height:1.4em}
+
+/* Footer */
+.footer{background:var(--charcoal);color:#d9d2c5;padding:64px 0 24px}
+.foot{display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap}
+.footer .brand{color:var(--paper);display:block;margin-bottom:.3rem}
+.social{display:flex;gap:20px;margin-top:.6rem}
+.footer a{text-decoration:none;border-bottom:1px solid rgba(217,210,197,.3)}
+.footer a:hover{color:var(--gold);border-color:var(--gold)}
+.copy{text-align:center;font-size:.85rem;margin-top:48px;opacity:.7}
+
+/* Dialogs */
+dialog{border:0;margin:auto;background:var(--paper);color:var(--charcoal);max-width:92vw}
+dialog::backdrop{background:rgba(30,29,27,.72);backdrop-filter:blur(3px)}
+dialog[open]{animation:pop .3s cubic-bezier(.2,.7,.2,1)}
+@keyframes pop{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:none}}
+.lightbox{padding:14px;max-height:94vh;width:min(780px,92vw)}
+.lightbox img{max-height:70vh;width:100%;object-fit:contain;background:var(--sand)}
+.lb-cap{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center;padding:14px 4px 4px}
+.lb-cap strong{font:400 1.5rem var(--serif)}
+.lb-cap span{color:var(--ash);font-size:.9rem;flex:1}
+.close{position:absolute;top:6px;right:10px;z-index:2;font-size:2rem;line-height:1;background:rgba(250,246,238,.9);border:0;width:38px;height:38px;border-radius:50%;cursor:pointer}
+.thanks{padding:44px 36px;text-align:center;width:min(440px,92vw)}
+.thanks h3{font-size:2rem;margin:14px 0 10px}
+.thanks p{color:var(--ash);margin-bottom:22px}
+.check{width:60px;height:60px;border-radius:50%;background:var(--gold);color:#fff;font-size:1.9rem;display:grid;place-items:center;margin:0 auto}
+
+/* Responsive */
+@media (max-width:860px){
+  .burger{display:block}
+  .links{position:fixed;top:64px;left:0;right:0;flex-direction:column;align-items:flex-start;gap:0;background:var(--linen);padding:8px 28px 24px;border-bottom:1px solid var(--sand);transform:translateY(-130%);transition:transform .3s;z-index:-1}
+  .links.open{transform:none}
+  .links a:not(.btn){padding:12px 0;width:100%}
+  .links .btn{margin-top:10px}
+  .hero{grid-template-columns:1fr;padding-top:104px;gap:44px}
+  .hero-art{max-width:420px}
+  .about{grid-template-columns:1fr;gap:32px}
+  .row{grid-template-columns:1fr}
+  .section{padding:72px 0}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .stroke path{stroke-dashoffset:0}
+}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <a href="#home" class="brand">Art by Jagrati</a>
+  <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+  <nav class="links" id="links" aria-label="Main">
+    <a href="#home">Home</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#about">About the Artist</a>
+    <a href="#order">Custom Commission</a>
+    <a href="#contact">Contact</a>
+    <a href="#order" class="btn btn-gold">Order Custom Art</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-text">
+    <h1>Bringing emotions to canvas.</h1>
+    <p class="hero-sub">Handcrafted custom paintings: commissioned portraits, canvas art and bespoke artwork, drawn and painted by hand for the people and places you love.</p>
+    <div class="hero-actions">
+      <a href="#order" class="btn btn-dark">Book a Commission</a>
+      <a href="#gallery" class="btn btn-line">See the gallery</a>
+    </div>
+  </div>
+  <div class="hero-art" aria-hidden="true">
+    <div class="frame">
+      <img src="https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?auto=format&fit=crop&w=900&q=80" alt="" loading="eager">
+    </div>
+    <svg class="stroke" viewBox="0 0 400 60" preserveAspectRatio="none"><path d="M5 40 C 80 5, 150 60, 220 28 S 350 10, 395 35" fill="none" stroke="#b98f45" stroke-width="5" stroke-linecap="round" pathLength="1"/></svg>
+  </div>
+</section>
+
+<section class="section" id="gallery">
+  <div class="wrap">
+    <h2>Gallery</h2>
+    <p class="lead">A selection of finished pieces. Each one is original and made by hand.</p>
+    <div class="tabs" id="tabs" role="tablist">
+      <button class="tab active" data-filter="all">All</button>
+      <button class="tab" data-filter="oil">Oil Paintings</button>
+      <button class="tab" data-filter="charcoal">Charcoal Sketches</button>
+      <button class="tab" data-filter="acrylic">Acrylic &amp; Canvas</button>
+      <button class="tab" data-filter="watercolor">Watercolors</button>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section class="section alt" id="about">
+  <div class="wrap about">
+    <div class="about-img"><img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=800&q=80" alt="Artist painting on canvas" loading="lazy"></div>
+    <div>
+      <h2>About the Artist</h2>
+      <p>Hi, I'm Jagrati. I have been drawing for as long as I can remember, first in the margins of school notebooks, then on canvas. Over the years I moved from pencil to charcoal, and from watercolor to oils, always chasing the same thing: a picture that feels like the person or place it shows.</p>
+      <p>Every commission is hand-drawn and hand-painted. No filters, no prints. I talk with you about the story behind the piece, send progress photos along the way, and finish only when it feels right to both of us.</p>
+      <p>Portraits of family, a gift for an anniversary, a landscape for a blank wall: tell me what you have in mind.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="order">
+  <div class="wrap narrow">
+    <h2>Custom Commission</h2>
+    <p class="lead">Tell me about the piece you want. I will reply within 24 hours with a quote and timeline.</p>
+    <form id="orderForm" novalidate>
+      <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+      <input type="hidden" name="subject" value="New commission request: Art by Jagrati">
+      <input type="hidden" name="from_name" value="Art by Jagrati Website">
+      <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
+      <div class="row">
+        <label>Full name<input type="text" name="name" id="name" autocomplete="name" required><small class="err"></small></label>
+        <label>Phone (WhatsApp)<input type="tel" name="phone" id="phone" autocomplete="tel" placeholder="+91 98765 43210" required><small class="err"></small></label>
+      </div>
+      <label>Email address<input type="email" name="email" id="email" autocomplete="email" required><small class="err"></small></label>
+      <div class="row">
+        <label>Artwork type
+          <select name="artwork_type" id="type" required>
+            <option value="">Choose one</option>
+            <option>Portrait</option><option>Canvas Landscape</option><option>Charcoal Sketch</option><option>Custom Concept</option>
+          </select><small class="err"></small></label>
+        <label>Size preference
+          <select name="size" id="size" required>
+            <option value="">Choose one</option>
+            <option>A4</option><option>A3</option><option>Canvas 12x16</option><option>Custom</option>
+          </select><small class="err"></small></label>
+      </div>
+      <label>Delivery address / city<input type="text" name="address" id="address" autocomplete="street-address" required><small class="err"></small></label>
+      <label>Description and custom instructions<textarea name="message" id="message" rows="5" placeholder="Who or what should be in the artwork? Any colors, mood or reference photos you'll send later?" required></textarea><small class="err"></small></label>
+      <div class="form-actions">
+        <button type="submit" class="btn btn-dark" id="submitBtn">Send commission request</button>
+        <button type="button" class="btn btn-wa" id="waBtn">Order via WhatsApp</button>
+      </div>
+      <p class="form-note" id="formNote" role="alert"></p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="footer" id="contact">
+  <div class="wrap foot">
+    <div>
+      <p class="brand">Art by Jagrati</p>
+      <p>Handcrafted custom art, made to order.</p>
+    </div>
+    <div>
+      <p><a href="mailto:jagratimalviya7@gmail.com">jagratimalviya7@gmail.com</a></p>
+      <p class="social">
+        <a href="https://instagram.com/YOUR_INSTAGRAM_HANDLE" target="_blank" rel="noopener">Instagram</a>
+        <a href="#" id="waLink" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="mailto:jagratimalviya7@gmail.com">Email</a>
+      </p>
+    </div>
+  </div>
+  <p class="copy">&copy; <span id="yr">2026</span> Art by Jagrati. All rights reserved.</p>
+</footer>
+
+<dialog id="lightbox" class="lightbox" aria-label="Artwork preview">
+  <button class="close" id="lbClose" aria-label="Close preview">&times;</button>
+  <img id="lbImg" src="" alt="">
+  <div class="lb-cap"><strong id="lbTitle"></strong><span id="lbMeta"></span><a href="#order" class="btn btn-gold" id="lbEnq">Enquire about this piece</a></div>
+</dialog>
+
+<dialog id="thanks" class="thanks" aria-label="Request sent">
+  <div class="check" aria-hidden="true">&#10003;</div>
+  <h3>Thank you, your request is in.</h3>
+  <p>Jagrati has received your commission details and will reply by email or WhatsApp within 24 hours.</p>
+  <button class="btn btn-dark" id="thanksClose">Close</button>
+</dialog>
+
+<script>
+/* ====== SETTINGS: edit these ====== */
+const WHATSAPP_NUMBER = "919999999999"; // country code + number, no "+" or spaces
+const WEB3FORMS_URL = "https://api.web3forms.com/submit"; // key goes in index.html (access_key)
+
+/* ====== Gallery data ====== */
+const img = id => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=900&q=80`;
+const ARTWORKS = [
+  {t:"Golden Hour Fields", c:"oil", m:"Oil on canvas", d:"18 x 24 in", p:"₹12,500", i:img("photo-1579783902614-a3fb3927b6a5")},
+  {t:"Quiet Portrait", c:"charcoal", m:"Charcoal on paper", d:"A3", p:"₹3,500", i:img("photo-1547826039-bfc35e0f1ea8")},
+  {t:"Monsoon Abstract", c:"acrylic", m:"Acrylic on canvas", d:"12 x 16 in", p:"₹6,800", i:img("photo-1541961017774-22349e4a1262")},
+  {t:"Garden Wash", c:"watercolor", m:"Watercolor on cotton paper", d:"A4", p:"₹2,800", i:img("photo-1460661419201-fd4cecdf8a8b")},
+  {t:"Studio Still Life", c:"oil", m:"Oil on canvas", d:"16 x 20 in", p:"", i:img("photo-1578301978693-85fa9c0320b9")},
+  {t:"Colour Study No. 4", c:"acrylic", m:"Acrylic on canvas", d:"24 x 30 in", p:"₹9,500", i:img("photo-1513364776144-60967b0f800f")}
+];
+
+const $ = s => document.querySelector(s);
+const grid = $("#grid");
+
+function renderGallery(filter = "all"){
+  const items = ARTWORKS.map((a, idx) => ({...a, idx})).filter(a => filter === "all" || a.c === filter);
+  grid.innerHTML = items.map((a, n) => `
+    <article class="card" style="animation-delay:${n * 60}ms">
+      <button class="thumb" data-open="${a.idx}" aria-label="Preview ${a.t}">
+        <img src="${a.i}" alt="${a.t}, ${a.m}" loading="lazy" onerror="this.removeAttribute('src')">
+      </button>
+      <div class="card-body">
+        <h3>${a.t}</h3>
+        <p class="meta">${a.m}, ${a.d}</p>
+        <div class="card-foot">
+          ${a.p ? `<span class="price">${a.p}</span>` : `<span class="meta">Price on request</span>`}
+          <a class="enq" href="#order" data-enq="${a.idx}">Enquire</a>
+        </div>
+      </div>
+    </article>`).join("");
+}
+renderGallery();
+
+$("#tabs").addEventListener("click", e => {
+  const b = e.target.closest(".tab"); if (!b) return;
+  document.querySelectorAll(".tab").forEach(t => t.classList.toggle("active", t === b));
+  renderGallery(b.dataset.filter);
+});
+
+/* Prefill the form message when enquiring about a piece */
+function prefill(i){
+  const a = ARTWORKS[i];
+  const box = $("#message");
+  if (!box.value.trim()) box.value = `I'd like to enquire about "${a.t}" (${a.m}, ${a.d}).`;
+}
+grid.addEventListener("click", e => {
+  const enq = e.target.closest("[data-enq]");
+  if (enq) return prefill(+enq.dataset.enq);
+  const open = e.target.closest("[data-open]");
+  if (open) openLightbox(+open.dataset.open);
+});
+
+/* Lightbox */
+const lb = $("#lightbox");
+let lbIndex = 0;
+function openLightbox(i){
+  const a = ARTWORKS[i]; lbIndex = i;
+  $("#lbImg").src = a.i; $("#lbImg").alt = `${a.t}, ${a.m}`;
+  $("#lbTitle").textContent = a.t;
+  $("#lbMeta").textContent = `${a.m}, ${a.d}${a.p ? " · " + a.p : ""}`;
+  lb.showModal();
+}
+$("#lbClose").onclick = () => lb.close();
+$("#lbEnq").onclick = () => { prefill(lbIndex); lb.close(); };
+lb.addEventListener("click", e => { if (e.target === lb) lb.close(); });
+
+/* Nav */
+const nav = $("#nav"), burger = $("#burger"), links = $("#links");
+addEventListener("scroll", () => nav.classList.toggle("scrolled", scrollY > 20), {passive:true});
+burger.onclick = () => {
+  const open = links.classList.toggle("open");
+  burger.setAttribute("aria-expanded", open);
+};
+links.addEventListener("click", e => { if (e.target.tagName === "A"){ links.classList.remove("open"); burger.setAttribute("aria-expanded", false); } });
+
+/* Footer bits */
+$("#yr").textContent = new Date().getFullYear();
+$("#waLink").href = `https://wa.me/${WHATSAPP_NUMBER}`;
+
+/* Form validation */
+const form = $("#orderForm");
+const rules = {
+  name: v => v.trim().length >= 2 || "Enter your full name.",
+  phone: v => /^[+]?[\d\s-]{10,15}$/.test(v.trim()) || "Enter a valid phone number, with 10 to 15 digits.",
+  email: v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()) || "Enter a valid email address, like name@example.com.",
+  type: v => v !== "" || "Choose an artwork type.",
+  size: v => v !== "" || "Choose a size.",
+  address: v => v.trim().length >= 3 || "Enter your delivery address or city.",
+  message: v => v.trim().length >= 10 || "Describe what you want in at least 10 characters."
+};
+function check(id){
+  const el = $("#" + id), res = rules[id](el.value), wrap = el.closest("label");
+  wrap.classList.toggle("invalid", res !== true);
+  wrap.querySelector(".err").textContent = res === true ? "" : res;
+  return res === true;
+}
+Object.keys(rules).forEach(id => $("#" + id).addEventListener("blur", () => check(id)));
+Object.keys(rules).forEach(id => $("#" + id).addEventListener("input", () => { if ($("#" + id).closest("label").classList.contains("invalid")) check(id); }));
+const allValid = () => Object.keys(rules).map(check).every(Boolean);
+
+const note = $("#formNote"), btn = $("#submitBtn"), thanks = $("#thanks");
+form.addEventListener("submit", async e => {
+  e.preventDefault(); note.textContent = "";
+  if (!allValid()) { note.textContent = "Please fix the highlighted fields."; return; }
+  if (form.botcheck.checked) return;
+  btn.disabled = true; btn.textContent = "Sending…";
+  try {
+    const data = Object.fromEntries(new FormData(form));
+    const r = await fetch(WEB3FORMS_URL, {
+      method: "POST",
+      headers: {"Content-Type":"application/json", "Accept":"application/json"},
+      body: JSON.stringify(data)
+    });
+    const j = await r.json();
+    if (!r.ok || !j.success) throw new Error(j.message || "Request failed");
+    form.reset(); thanks.showModal();
+  } catch (err) {
+    note.textContent = "Your request could not be sent. Check your connection and try again, or use the WhatsApp button.";
+  } finally {
+    btn.disabled = false; btn.textContent = "Send commission request";
+  }
+});
+$("#thanksClose").onclick = () => thanks.close();
+thanks.addEventListener("click", e => { if (e.target === thanks) thanks.close(); });
+
+/* WhatsApp order */
+$("#waBtn").addEventListener("click", () => {
+  if (!allValid()) { note.textContent = "Please fix the highlighted fields before ordering."; return; }
+  const v = id => $("#" + id).value.trim();
+  const text = [
+    "Hello Jagrati, I'd like to commission an artwork.",
+    "",
+    `Name: ${v("name")}`, `Phone: ${v("phone")}`, `Email: ${v("email")}`,
+    `Artwork type: ${v("type")}`, `Size: ${v("size")}`, `Delivery: ${v("address")}`,
+    "", `Details: ${v("message")}`
+  ].join("\n");
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`, "_blank", "noopener");
+});
+</script>
+</body>
+</html>
